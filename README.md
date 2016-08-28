@@ -1,2 +1,2 @@
 # loader
-Moader for iframe intergation
+Main loader for iframe intergation
