@@ -5,7 +5,7 @@ Frontend javascript tool for iframe integration.
 ## [Contributing](https://github.com/augesd/loader/blob/develop/CONTRIBUTING.md)
 
 We're looking for co-maintainers! If you want to become a master of time please
-write to [aia](aia@auge.in.ua).
+write to [AIA](aia@auge.in.ua).
 
 ## License
 

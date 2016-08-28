@@ -2,7 +2,7 @@
   "name": "auge-loader",
   "version": "1.0.0",
   "description": "Frontend tool for iframe integration",
-  "homepage": "http://auge.in.ua/loader",
+  "homepage": "https://auge.in.ua/loader",
   "author": "Andrey Anufriev <aia@auge.in.ua>",
   "keywords": [
     "loader",

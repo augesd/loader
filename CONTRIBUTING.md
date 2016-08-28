@@ -90,3 +90,4 @@ But also:
 * pick up work nobody else wants to
 * attent a montly meeting
 * participate in the internal slack group
+
