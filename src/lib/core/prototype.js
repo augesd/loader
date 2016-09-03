@@ -1,6 +1,6 @@
-import { Loader } from './constructor';
+import { loader } from './constructor';
 
-var proto = Loader.prototype;
+var proto = loader.prototype;
 
 import { locale, localeData, lang } from './locale';
 // ...

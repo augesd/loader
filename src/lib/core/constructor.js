@@ -32,7 +32,7 @@ export function copyConfig(to, from) {
 var updateInProgress = false;
 
 // Loader prototype object
-export function Loader(config) {
+export function loader(config) {
     copyConfig(this, config);
     // Prevent infinite loop in some cases.
     if (updateInProgress === false) {
@@ -43,5 +43,5 @@ export function Loader(config) {
 }
 
 export function isLoader (obj) {
-    return obj instanceof Loader || (obj != null && obj._isALoaderObject != null);
+    return obj instanceof loader || (obj != null && obj._isALoaderObject != null);
 }

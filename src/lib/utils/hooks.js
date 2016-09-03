@@ -6,7 +6,7 @@ function hooks () {
     return hookCallback.apply(null, arguments);
 }
 
-// This is done to register the method called with moment()
+// This is done to register the method called with loader()
 // without creating circular dependencies.
 function setHookCallback (callback) {
     hookCallback = callback;

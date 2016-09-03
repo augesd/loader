@@ -6,3 +6,4 @@ min/*.js
 npm-debug.log
 .build*
 build
+dist

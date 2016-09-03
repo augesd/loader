@@ -9,31 +9,17 @@ import {
     listLocales
 } from './locales';
 
-import {
-    listMonths,
-    listMonthsShort,
-    listWeekdays,
-    listWeekdaysShort,
-    listWeekdaysMin
-} from './lists';
-
 export {
     getSetGlobalLocale,
     defineLocale,
     updateLocale,
     getLocale,
-    listLocales,
-    listMonths,
-    listMonthsShort,
-    listWeekdays,
-    listWeekdaysShort,
-    listWeekdaysMin
+    listLocales
 };
 
 import { deprecate } from '../utils/deprecate';
 import { hooks } from '../utils/hooks';
 
-hooks.lang = deprecate('moment.lang is deprecated. Use moment.locale instead.', getSetGlobalLocale);
-hooks.langData = deprecate('moment.langData is deprecated. Use moment.localeData instead.', getLocale);
+hooks.lang = deprecate('loader.lang is deprecated. Use loader.locale instead.', getSetGlobalLocale);
 
 import './en';

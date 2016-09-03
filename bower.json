@@ -5,15 +5,18 @@
     "**/.*",
     "bower_components",
     "node_modules",
+    "vendor",
     "src",
     "tasks",
     "test",
     ".gitignore",
     ".jshintrc",
+    ".babelrc",
     ".npmignore",
     ".spmignore",
     "CONTRIBUTING.md",
     "Gruntfile.js",
+    "index.html",
     "package.json"
   ]
 }

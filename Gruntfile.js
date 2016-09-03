@@ -188,7 +188,7 @@ module.exports = function (grunt) {
 	require('load-grunt-tasks')(grunt);
 
 	// Default task.
-	grunt.registerTask('default', ['lint', 'test:node']);
+	grunt.registerTask('default', ['lint']);
 
 	// linting
 	grunt.registerTask('lint', ['jshint', 'jscs']);
