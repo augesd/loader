@@ -18,8 +18,6 @@ Starting from version 1.0.0 the code is placed under `src/`.
 
 * `src/lib/**/*.js` loader's core files
 * `src/locale/*.js` locale files
-* `src/test/loader/*.js` loader's core tests
-* `src/test/locale/*.js` locale tests
 
 We're using ES6 module system, but nothing else ES6, because of performance
 considerations (added code by the transpiler, less than optimal translation to
@@ -41,7 +39,7 @@ cd loader
 npm install -g grunt-cli
 npm install
 git checkout develop  # all patches against develop branch, please!
-grunt                 # this runs tests and jshint
+grunt                 # this runs jshint
 ```
 
 Changing locale files
@@ -61,12 +59,12 @@ Grunt tasks
 
 We use Grunt for managing the build. Here are some useful Grunt tasks:
 
-  * `grunt` The default task lints the code and runs the tests. You should make sure you do this before submitting a PR.
-  * `grunt test` run the tests.
-  * `grunt release` Build everything, including minified files (do not include
-    those in Pull Requests)
-  * `grunt transpile:fr,ru` Build custom locale bundles `loader-with-locales.custom.js` and `locales.custom.js` inside `build/umd/min` containing just French and Russian.
-  * `grunt size` Print size statistics.
+  * `grunt` The default task lints the code. You should make sure you do this before submitting a PR.
+  * `grunt build` Build everything.
+  * `grunt build-min` Build everything and magnifying.
+  * `grunt bump_version:1.0.0` Set new version's number as '1.0.0'.
+  * `grunt release` Build everything, including minified files (do not include those in Pull Requests)
+  * `grunt transpile:fr,ru` Build custom locale bundles `loader-with-locales.custom.js` and `locales.custom.js` inside `build/umd/min` containing just French and Russian.  
 
 Becoming a AUGE team member
 =============================
@@ -88,6 +86,6 @@ Once you become a member:
 But also:
 * be active in the repositories
 * pick up work nobody else wants to
-* attent a montly meeting
+* attend a monthly meeting
 * participate in the internal slack group
 
