@@ -1,22 +1,22 @@
 {
-  "name": "auge-loader",
-  "main": "auge-loader.js",
-  "ignore": [
-    "**/.*",
-    "bower_components",
-    "node_modules",
-    "vendor",
-    "src",
-    "tasks",
-    "test",
-    ".gitignore",
-    ".jshintrc",
-    ".babelrc",
-    ".npmignore",
-    ".spmignore",
-    "CONTRIBUTING.md",
-    "Gruntfile.js",
-    "index.html",
-    "package.json"
-  ]
+	"name" : "auge-loader",
+	"main" : "auge-loader.js",
+	"ignore" : [
+		"**/.*",
+		"build",
+		"min",
+		"node_modules",
+		"src",
+		"tasks",
+		"test",
+		".gitignore",
+		".jscs",
+		".jshintrc",
+		".npmignore",
+		"bower.json",
+		"CONTRIBUTING.md",
+		"Gruntfile.js",
+		"index.html",
+		"package.json"
+	]
 }

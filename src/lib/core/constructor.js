@@ -7,41 +7,43 @@ import isUndefined from '../utils/is-undefined';
 var loaderProperties = hooks.loaderProperties = [];
 
 export function copyConfig(to, from) {
-    var i, prop, val;
+	var i, prop, val;
 
-    if (!isUndefined(from._isALoaderObject)) {
-        to._isALoaderObject = from._isALoaderObject;
-    }
-    if (!isUndefined(from._locale)) {
-        to._locale = from._locale;
-    }
+	if (!isUndefined(from._isALoaderObject)) {
+		to._isALoaderObject = from._isALoaderObject;
+	}
+	if (!isUndefined(from._locale)) {
+		to._locale = from._locale;
+	}
 
-    if (loaderProperties.length > 0) {
-        for (i in loaderProperties) {
-            prop = loaderProperties[i];
-            val = from[prop];
-            if (!isUndefined(val)) {
-                to[prop] = val;
-            }
-        }
-    }
+	if (loaderProperties.length > 0) {
+		for (i in loaderProperties) {
+			prop = loaderProperties[i];
+			val  = from[prop];
+			if (!isUndefined(val)) {
+				to[prop] = val;
+			}
+		}
+	}
 
-    return to;
+	return to;
 }
 
 var updateInProgress = false;
 
 // Loader prototype object
-export function loader(config) {
-    copyConfig(this, config);
-    // Prevent infinite loop in some cases.
-    if (updateInProgress === false) {
-        updateInProgress = true;
-        //hooks.doSomething(this);
-        updateInProgress = false;
-    }
+export function Loader(config) {
+	console.info('Loader, config',config);
+
+	copyConfig(this, config);
+	// Prevent infinite loop in some cases.
+	if (updateInProgress === false) {
+		updateInProgress = true;
+		//hooks.doSomething(this);
+		updateInProgress = false;
+	}
 }
 
-export function isLoader (obj) {
-    return obj instanceof loader || (obj != null && obj._isALoaderObject != null);
+export function isLoader(obj) {
+	return obj instanceof Loader || (obj != null && obj._isALoaderObject != null);
 }

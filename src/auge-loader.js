@@ -1,8 +1,3 @@
-//! auge-loader.js
-//! version : 1.0.0
-//! authors : Andrey Anufriev (AUGE SD)
-//! license : MIT
-
 'use strict';
 
 import { VERSION } from './lib/core/constants';
@@ -15,9 +10,11 @@ import {
 loader.version = VERSION;
 
 import {
+	foo,
 	isLoader,
-	loaderPrototype as fn
-} from './lib/core/main';
+	loaderPrototype as fn,
+	createLocal     as local
+} from './lib/core/core';
 
 import {
 	defineLocale,
@@ -27,13 +24,18 @@ import {
 	listLocales        as locales
 } from './lib/locale/locale';
 
-loader.fn                   = fn;
-loader.isLoader             = isLoader;
-loader.locale               = locale;
-loader.localeData           = localeData;
-loader.locales              = locales;
-loader.defineLocale         = defineLocale;
-loader.updateLocale         = updateLocale;
-loader.prototype            = fn;
+setHookCallback(local);
+
+/*
+loader.fn           = fn;
+loader.isLoader     = isLoader;
+loader.locale       = locale;
+loader.localeData   = localeData;
+loader.locales      = locales;
+loader.defineLocale = defineLocale;
+loader.updateLocale = updateLocale;
+loader.foo          = foo;
+*/
+loader.prototype    = fn;
 
 export default loader;
