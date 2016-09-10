@@ -62,7 +62,7 @@ We use Grunt for managing the build. Here are some useful Grunt tasks:
   * `grunt` The default task lints the code. You should make sure you do this before submitting a PR.
   * `grunt build` Build everything.
   * `grunt build-min` Build everything and magnifying.
-  * `grunt bump_version:1.0.0` Set new version's number as '1.0.0'.
+  * `grunt set-version:1.0.0` Set new version's number as '1.0.0'.
   * `grunt release` Build everything, including minified files (do not include those in Pull Requests)
   * `grunt transpile:fr,ru` Build custom locale bundles `loader-with-locales.custom.js` and `locales.custom.js` inside `build/umd/min` containing just French and Russian.  
 
