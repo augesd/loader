@@ -1,81 +1,64 @@
 {
-	"name" : "auge-loader",
-	"title" : "AUGE Loader",
-	"version" : "1.0.0",
-	"description" : "Frontend tool for iframe integration",
-	"homepage" : "https://auge.in.ua/loader",
-	"developer" : "AUGE SD",
-	"author" : "Andrey Anufriev <aia@auge.in.ua>",
-	"keywords" : [
-		"loader",
-		"iframe",
-		"frontend"
-	],
-	"main" : "./auge-loader.js",
-	"jsnext:main" : "./src/auge-loader.js",
-	"engines" : {
-		"node" : "*"
-	},
-	"repository" : {
-		"type" : "git",
-		"url" : "https://github.com/augesd/loader.git"
-	},
-	"bugs" : {
-		"url" : "https://github.com/augesd/loader/issues"
-	},
-	"license" : "MIT",
-	"lang" : "ru",
-	"locales" : {
-		"ru" : {
-			"title" : "Загрузчик iframe",
-			"description" : "основной загрузчик для работы со встраиваемыми iframes."
-		}
-	},
-	"devDependencies" : {
-		"babel-preset-es2015" : "latest",
-		"babel-preset-es2015-loose-rollup" : "latest",
-		"babelify" : "latest",
-		"browserify" : "latest",
-		"es6-promise" : "latest",
-		"grunt" : "latest",
-		"grunt-babel" : "latest",
-		"grunt-browserify" : "latest",
-		"grunt-cli" : "latest",
-		"grunt-contrib-clean" : "latest",
-		"grunt-contrib-concat" : "latest",
-		"grunt-contrib-copy" : "latest",
-		"grunt-contrib-jshint" : "latest",
-		"grunt-contrib-uglify" : "latest",
-		"grunt-contrib-watch" : "latest",
-		"grunt-env" : "latest",
-		"grunt-exec" : "latest",
-		"grunt-jscs" : "latest",
-		"grunt-rollup" : "latest",
-		"grunt-string-replace" : "latest",
-		"load-grunt-tasks" : "latest",
-		"rollup" : "latest",
-		"rollup-plugin-babel" : "latest",
-		"rollup-plugin-multi-entry" : "latest",
-		"time-grunt" : "latest",
-		"uglify-js" : "latest",
-		"watchify" : "latest"
-	},
-	"scripts" : {
-		"lint" : "grunt lint",
-		"build-js" : "browserify src/auge-loader.js > build/bundle.js",
-		"watch-js" : "watchify src/auge-loader.js -o build/bundle.js -d",
-		"watch-js-v" : "watchify src/auge-loader.js -o build/bundle.js -dv"
-	},
-	"browserify" : {
-		"transform" : [
-			[
-				"babelify",
-				{
-					"presets" : [
-						"es2015"
-					]
-				}
-			]
-		]
-	}
+  "name": "auge-loader",
+  "title": "AUGE Loader",
+  "version": "1.0.0",
+  "description": "Frontend tool for iframe integration",
+  "homepage": "https://auge.in.ua/loader",
+  "developer": "AUGE SD",
+  "author": "Andrey Anufriev <aia@auge.in.ua>",
+  "keywords": [
+    "loader",
+    "iframe",
+    "frontend"
+  ],
+  "main": "./auge-loader.js",
+  "jsnext:main": "./src/auge-loader.js",
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/augesd/loader.git"
+  },
+  "bugs": {
+    "url": "https://github.com/augesd/loader/issues"
+  },
+  "license": "MIT",
+  "lang": "ru",
+  "locales": {
+    "ru": {
+      "title": "Загрузчик iframe",
+      "description": "основной загрузчик для работы со встраиваемыми iframes."
+    }
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "latest",
+    "babel-preset-es2015-loose-rollup": "latest",
+    "es6-promise": "latest",
+    "grunt": "latest",
+    "grunt-babel": "latest",
+    "grunt-cli": "latest",
+    "grunt-contrib-clean": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-copy": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-env": "latest",
+    "grunt-exec": "latest",
+    "grunt-jscs": "latest",
+    "grunt-rollup": "latest",
+    "grunt-string-replace": "latest",
+    "load-grunt-tasks": "latest",
+    "rollup": "latest",
+    "rollup-plugin-babel": "latest",
+    "rollup-plugin-multi-entry": "latest",
+    "rollup-watch": "latest",
+    "time-grunt": "latest",
+    "uglify-js": "latest"
+  },
+  "scripts": {
+    "lint": "grunt lint",
+    "rollup-watch": "rollup -w -f umd -n iFrameCommunicator -i src/auge-loader.js -o build/bundle.js"
+  }
 }
