@@ -33,7 +33,6 @@ var updateInProgress = false;
 
 // Loader prototype object
 export function Loader(config) {
-
 	copyConfig(this, config);
 	// Prevent infinite loop in some cases.
 	if (updateInProgress === false) {

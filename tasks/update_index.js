@@ -4,9 +4,12 @@ module.exports = function (grunt) {
 		cwd: 'build/umd/',
 		src: [
 			'auge-loader.js',
-			'locale/*.js',
-			'min/locales.js',
-			'min/auge-loader-with-locales.js'
+			'auge-loader.min.js',
+			'auge-loader-with-locales.js',
+			'auge-loader-with-locales.min.js',
+			'locales.js',
+			'locales.min.js',
+			'locale/*.js'
 		],
 		dest: '.'
 	});
