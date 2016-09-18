@@ -12,9 +12,9 @@ module.exports = function (grunt) {
 		uglify: {
 			main: {
 				files: {
-					'build/umd/auge-loader-with-locales.min.js': 'build/umd/auge-loader-with-locales.js',
+					'build/umd/wgm-with-locales.min.js': 'build/umd/wgm-with-locales.js',
 					'build/umd/locales.min.js': 'build/umd/locales.js',
-					'build/umd/auge-loader.min.js': 'build/umd/auge-loader.js'
+					'build/umd/wgm.min.js': 'build/umd/wgm.js'
 				}
 			},
 			options: {

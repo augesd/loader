@@ -11,23 +11,23 @@ module.exports = function (grunt) {
 				presets: ['es2015-loose-rollup']
 			})]
 		},
-		loader: {
+		manager: {
 			options: {
-				moduleName: 'iFrameCommunicator'
+				moduleName: 'wgm'
 			},
 			files: [{
-				src: 'src/auge-loader.js',
-				dest: 'build/umd/auge-loader.js'
+				src: 'src/wgm.js',
+				dest: 'build/umd/wgm.js'
 			}]
 		},
 		locales: {
 			options: {
 				exports: 'none',
 				external: [
-					path.resolve(__dirname, '../src/auge-loader.js')
+					path.resolve(__dirname, '../src/wgm.js')
 				],
 				globals: {
-					'../core': 'loader'
+					'../core': 'wgm'
 				}
 			},
 			files: [{
@@ -51,7 +51,7 @@ module.exports = function (grunt) {
 		function (locales) {
 			var tasks = [
 				'clean:build',
-				'rollup:loader'
+				'rollup:manager'
 			];
 			/*
 			 if (locales) {

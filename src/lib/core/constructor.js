@@ -4,21 +4,31 @@ import isUndefined from '../utils/is-undefined';
 
 // Plugins that add properties should also add the key here (null value),
 // so we can properly clone ourselves.
-var loaderProperties = hooks.loaderProperties = [];
+var settings = [];
 
-export function copyConfig(to, from) {
-	var i, prop, val;
+settings.a = 'aaaa';
+settings.b = 'bbbb';
+settings.c = false;
+settings.d = {};
 
-	if (!isUndefined(from._isALoaderObject)) {
-		to._isALoaderObject = from._isALoaderObject;
+hooks.settings = settings;
+
+function applyConfig(to, from) {
+	let i, prop, val;
+
+	console.info('construct.applyConfig');
+
+	if (!isUndefined(from._is)) {
+		to._is = from._is;
 	}
-	if (!isUndefined(from._locale)) {
-		to._locale = from._locale;
-	}
 
-	if (loaderProperties.length > 0) {
-		for (i in loaderProperties) {
-			prop = loaderProperties[i];
+	console.info(settings);
+
+	if (settings.length > 0) {
+		console.info('construct.settings');
+		for (i in settings) {
+			prop = settings[i];
+			console.info(i,prop);
 			val  = from[prop];
 			if (!isUndefined(val)) {
 				to[prop] = val;
@@ -29,19 +39,12 @@ export function copyConfig(to, from) {
 	return to;
 }
 
-var updateInProgress = false;
-
-// Loader prototype object
-export function Loader(config) {
-	copyConfig(this, config);
-	// Prevent infinite loop in some cases.
-	if (updateInProgress === false) {
-		updateInProgress = true;
-		//hooks.doSomething(this);
-		updateInProgress = false;
-	}
+// Manager prototype object
+export function Manager(config) {
+	console.info('construct.Manager',config);
+	applyConfig(this, config);
 }
 
-export function isLoader(obj) {
-	return obj instanceof Loader || (obj != null && obj._isALoaderObject != null);
+export function is(obj) {
+	return obj instanceof Manager || (obj != null && obj._is != null);
 }

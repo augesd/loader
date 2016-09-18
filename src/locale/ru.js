@@ -1,8 +1,8 @@
 //! auge-locale.js locale configuration
 //! locale : Russian [ru]
 
-import loader from '../auge-loader';
+import manager from '../wgm';
 
-export default loader.defineLocale('ru', {
+export default manager.defineLocale('ru', {
     foo : 'фу'
 });

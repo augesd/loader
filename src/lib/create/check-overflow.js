@@ -1,8 +1,8 @@
 import getParsingFlags from '../create/parsing-flags';
 
-export default function checkOverflow (m) {
-    var overflow;
-    var a = m._a;
+export default function checkOverflow(m) {
+    let overflow;
+    let a = m._a;
 
     if (a && getParsingFlags(m).overflow === -2) {
         overflow = -1;

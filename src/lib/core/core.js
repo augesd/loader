@@ -1,14 +1,14 @@
-import { createLocal } from '../create/local';
-import { isLoader } from './constructor';
-import loaderPrototype from './prototype';
+import { getInstance } from '../create/by-default';
+import { is } from './constructor';
+import proto from './prototype';
 
-function foo (input) {
-    console.info('core.foo', input);
+function foo (input = 'someValue') {
+    console.info(`core.foo, ${input}!`);
 }
 
 export {
     foo,
-    isLoader,
-    createLocal,
-    loaderPrototype
+    is,
+    getInstance,
+    proto
 };

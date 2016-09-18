@@ -1,6 +1,6 @@
 {
-	"name" : "auge-loader",
-	"main" : "auge-loader.js",
+	"name" : "wgm",
+	"main" : "wgm.js",
 	"ignore" : [
 		"**/.*",
 		"build",

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>auge.loader.dev</title>
+    <title>auge.wgm.dev</title>
 </head>
 <body>
 
@@ -12,17 +12,22 @@
     <a href="https://ya.ru">ya.ru</a>
 
     <!--
-    <script type="application/javascript" src="./build/umd/auge-loader.min.js"></script>
-    <script type="application/javascript" src="./build/bundle.js"></script>
+    <script type="application/javascript" src="./build/umd/wgm.min.js"></script>
+    <script type="application/javascript" src="./build/umd/wgm.js"></script>
     -->
-    <script type="application/javascript" src="./build/umd/auge-loader.js"></script>
+    <script type="application/javascript" src="./build/bundle.js"></script>
 
     <script type="text/javascript">
-        console.time('auge-loader');
+        console.time('wgm');
 
-        var ifc = new iFrameCommunicator({a:'b'});
-        console.info('iFrameCommunicator',iFrameCommunicator);
-        console.info('ifc by new...',ifc);
+        console.info('wgm',wgm);
+        console.info('wgm 2',wgm({b:'c'}));
+        var wgmNew = new wgm({a:'b'});
+        console.info('wgm by new...',wgmNew);
+        wgm.coreFoo();
+        wgmNew.protoBar('sdfsdfsd');
+        wgmNew.protoBar2('sdfsdfsd');
+        console.info(wgmNew.settings);
 
         // Коллекции DOM элементов
         let result = [];
@@ -30,7 +35,7 @@
             result.push(link.href);
         }
 
-        console.timeEnd('auge-loader');
+        console.timeEnd('wgm');
     </script>
 
 </body>

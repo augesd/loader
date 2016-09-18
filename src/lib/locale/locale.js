@@ -17,9 +17,9 @@ export {
     listLocales
 };
 
-import { deprecate } from '../utils/deprecate';
+//import { deprecate } from '../utils/deprecate';
 import { hooks } from '../utils/hooks';
 
-hooks.lang = deprecate('loader.lang is deprecated. Use loader.locale instead.', getSetGlobalLocale);
+//hooks.lang = deprecate('wgm.lang is deprecated. Use wgm.locale instead.', getSetGlobalLocale);
 
 import './en';

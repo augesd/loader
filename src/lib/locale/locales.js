@@ -2,7 +2,7 @@ import isArray from '../utils/is-array';
 import hasOwnProp from '../utils/has-own-prop';
 import isUndefined from '../utils/is-undefined';
 import compareArrays from '../utils/compare-arrays';
-import { deprecateSimple } from '../utils/deprecate';
+//import { deprecateSimple } from '../utils/deprecate';
 import { mergeConfigs } from './set';
 import { Locale } from './constructor';
 import keys from '../utils/keys';
@@ -20,8 +20,8 @@ function normalizeLocale(key) {
 // pick the locale from the array
 // try ['en-au', 'en-gb'] as 'en-au', 'en-gb', 'en', as in move through the list trying each
 // substring from most specific to least, but move to the next array item if it's a more specific variant than the current root
-function chooseLocale(names) {
-    var i = 0, j, next, locale, split;
+function chooseLocale(...names) {
+    let i = 0, j, next, locale, split;
 
     while (i < names.length) {
         split = normalizeLocale(names[i]).split('-');
@@ -45,7 +45,7 @@ function chooseLocale(names) {
 }
 
 function loadLocale(name) {
-    var oldLocale = null;
+    let oldLocale = null;
     // TODO: Find a better way to register and load all the locales in Node
     if (!locales[name] && (typeof module !== 'undefined') &&
             module && module.exports) {
@@ -64,7 +64,7 @@ function loadLocale(name) {
 // no arguments are passed in, it will simply return the current global
 // locale key.
 export function getSetGlobalLocale (key, values) {
-    var data;
+    let data;
     if (key) {
         if (isUndefined(values)) {
             data = getLocale(key);
@@ -87,8 +87,8 @@ export function defineLocale (name, config) {
         config.abbr = name;
         if (locales[name] != null) {
             deprecateSimple('defineLocaleOverride',
-                    'use loader.updateLocale(localeName, config) to change ' +
-                    'an existing locale. loader.defineLocale(localeName, ' +
+                    'use wgm.updateLocale(localeName, config) to change ' +
+                    'an existing locale. wgm.defineLocale(localeName, ' +
                     'config) should only be used for creating a new locale.');
             parentConfig = locales[name]._config;
         } else if (config.parentLocale != null) {
@@ -115,7 +115,7 @@ export function defineLocale (name, config) {
 
 export function updateLocale(name, config) {
     if (config != null) {
-        var locale, parentConfig = baseConfig;
+        let locale, parentConfig = baseConfig;
         // MERGE
         if (locales[name] != null) {
             parentConfig = locales[name]._config;
@@ -142,15 +142,13 @@ export function updateLocale(name, config) {
 
 // returns locale data
 export function getLocale (key) {
-    var locale;
+    let locale;
 
     if (key && key._locale && key._locale._abbr) {
         key = key._locale._abbr;
     }
 
-    if (!key) {
-        return globalLocale;
-    }
+    if (!key) return globalLocale;
 
     if (!isArray(key)) {
         //short-circuit everything else

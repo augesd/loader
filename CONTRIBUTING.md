@@ -2,21 +2,21 @@ Read before submitting Pull Requests
 ====================================
 
  * **Pull requests to the `master` branch will be closed.** Please submit all pull requests to the `develop` branch.
- * **Locale translations will not be merged without unit tests.** See [the British English unit tests](https://github.com/augesd/loader/blob/develop/src/test/locale/en-gb.js) for an example.
+ * **Locale translations will not be merged without unit tests.** See [the British English unit tests](https://github.com/augesd/wgm/blob/develop/src/test/locale/en-gb.js) for an example.
  * **Do not include the minified files in your pull request.** These are
-   `auge-loader.js`, `locale/*.js`, `min/*.js`. Don't worry, we'll build them when
+   `wgm.js`, `locale/*.js`, `min/*.js`. Don't worry, we'll build them when
    we cut a release.
 
 Code organization
 =================
 
 Starting from version 1.0.0 the code is placed under `src/`.
-`auge-loader.js`, `locale/*.js`, `min/*.js` are generated only on release.
+`wgm.js`, `locale/*.js`, `min/*.js` are generated only on release.
 
 **DO NOT** submit changes to the generated files. Instead only change
 `src/**/*.js` and run the tests.
 
-* `src/lib/**/*.js` loader's core files
+* `src/lib/**/*.js` wgm's core files
 * `src/locale/*.js` locale files
 
 We're using ES6 module system, but nothing else ES6, because of performance
@@ -34,8 +34,8 @@ To contribute, fork the library and install grunt and dependencies. You need
 [nenv](https://github.com/ryuone/nenv) to install node.
 
 ```bash
-git clone https://github.com/augesd/loader.git
-cd loader
+git clone https://github.com/augesd/wgm.git
+cd wgm
 npm install -g grunt-cli
 npm install
 git checkout develop  # all patches against develop branch, please!
@@ -64,7 +64,7 @@ We use Grunt for managing the build. Here are some useful Grunt tasks:
   * `grunt build-min` Build everything and magnifying.
   * `grunt set-version:1.0.0` Set new version's number as '1.0.0'.
   * `grunt release` Build everything, including minified files (do not include those in Pull Requests)
-  * `grunt transpile:fr,ru` Build custom locale bundles `loader-with-locales.custom.js` and `locales.custom.js` inside `build/umd` containing just French and Russian.  
+  * `grunt transpile:fr,ru` Build custom locale bundles `wgm-with-locales.custom.js` and `locales.custom.js` inside `build/umd` containing just French and Russian.  
 
 Becoming a AUGE team member
 =============================
@@ -72,11 +72,11 @@ Becoming a AUGE team member
 AUGE's team members have extra powers and responsibilities. If you want to
 become one -- be active in our repositories by answering issues, reviewing PRs,
 discussing changes, submitting PRs for open bugs. Any help on
-[augesd/loader](https://github.com/augesd/loader) will be
+[augesd/wgm](https://github.com/augesd/wgm) will be
 noticed.
 
 Once you've proven to be trustworthy, submit your request to the
-[gitter chat](https://gitter.im/auge-loader/Lobby), and it will be reviewed by the
+[gitter chat](https://gitter.im/auge-wgm/Lobby), and it will be reviewed by the
 existing team.
 
 Once you become a member:
