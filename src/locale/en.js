@@ -1,8 +1,8 @@
 //! wgm.js locale configuration
-//! locale : English (United Kingdom) [en-gb]
+//! locale : English [en]
 
 import manager from '../wgm';
 
-export default manager.proxy('locales').add('en-gb', {
+export default manager.proxy('locales').add('en', {
 	'errors.readOnly': 'Please don\'t set properties on this object.'
 });

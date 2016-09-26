@@ -51,13 +51,13 @@ module.exports = function (grunt) {
 		function (locales) {
 			var tasks = [
 				'clean:build',
+				//'rollup:locales',
 				'rollup:manager'
 			];
-			/*
-			 if (locales) {
-			 tasks.push('transpile-custom-raw:' + locales);
-			 }
-			 */
+
+			//grunt.fail.fatal(locales);
+			//if (locales) tasks.push('transpile-custom-raw:' + locales);
+
 			grunt.task.run(tasks);
 		});
 };

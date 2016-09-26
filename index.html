@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>auge.wgm.dev</title>
+    <title>auge.wgm</title>
 </head>
 <body>
 
@@ -14,26 +14,18 @@
     <!--
     <script type="application/javascript" src="./build/umd/wgm.min.js"></script>
     <script type="application/javascript" src="./build/umd/wgm.js"></script>
+    <script type="application/javascript" src="./src/locale/ru.js"></script>
     -->
     <script type="application/javascript" src="./build/bundle.js"></script>
 
     <script type="text/javascript">
         console.time('wgm');
 
-        console.info('wgm',wgm);
-        console.info('wgm 2',wgm({b:'c'}));
-        var wgmNew = new wgm({a:'b'});
-        console.info('wgm by new...',wgmNew);
-        wgm.coreFoo();
-        wgmNew.protoBar('sdfsdfsd');
-        wgmNew.protoBar2('sdfsdfsd');
-        console.info(wgmNew.settings);
+        let locales = window.wgm.proxy('locales');
 
-        // Коллекции DOM элементов
-        let result = [];
-        for (let link of document.links) {
-            result.push(link.href);
-        }
+        var newObj = new window.wgm({income:'SomeOne'});
+
+        //console.info( window.wgm.t('foo') );
 
         console.timeEnd('wgm');
     </script>

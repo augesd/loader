@@ -1,8 +1,8 @@
-//! auge-locale.js locale configuration
+//! wgm.js locale configuration
 //! locale : Russian [ru]
 
 import manager from '../wgm';
 
-export default manager.defineLocale('ru', {
-    foo : 'фу'
+export default manager.proxy('locales').add('ru', {
+	'errors.readOnly': 'Не устанавливайте значения свойств для данного объекта.'
 });

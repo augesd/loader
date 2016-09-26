@@ -1,38 +1,22 @@
-import { hooks } from '../utils/hooks';
-import hasOwnProp from '../utils/has-own-prop';
 import isUndefined from '../utils/is-undefined';
+import handlerReadOnly from '../handlers/readOnly';
 
-// Plugins that add properties should also add the key here (null value),
-// so we can properly clone ourselves.
 var settings = [];
-
-settings.a = 'aaaa';
-settings.b = 'bbbb';
-settings.c = false;
-settings.d = {};
-
-hooks.settings = settings;
+//settings.push('locale');
 
 function applyConfig(to, from) {
+	console.info('constructor.applyConfig', arguments);
 	let i, prop, val;
 
-	console.info('construct.applyConfig');
+	if (!isUndefined(from._is)) to._is = from._is;
 
-	if (!isUndefined(from._is)) {
-		to._is = from._is;
-	}
-
-	console.info(settings);
+	to._params = new Proxy(from._input, handlerReadOnly);
 
 	if (settings.length > 0) {
-		console.info('construct.settings');
 		for (i in settings) {
 			prop = settings[i];
-			console.info(i,prop);
 			val  = from[prop];
-			if (!isUndefined(val)) {
-				to[prop] = val;
-			}
+			if (!isUndefined(val)) to[prop] = val;
 		}
 	}
 
@@ -41,7 +25,6 @@ function applyConfig(to, from) {
 
 // Manager prototype object
 export function Manager(config) {
-	console.info('construct.Manager',config);
 	applyConfig(this, config);
 }
 

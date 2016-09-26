@@ -13,39 +13,19 @@ import {
 	setHookCallback
 } from './lib/utils/hooks';
 
-manager.version = VERSION;
-
 import {
-	foo,
-	is,
-	proto           as fn,
-	getInstance     as currentInstance
+	proxy,
+	translate,
+	currentInstance
 } from './lib/core/core';
+
+manager.version = VERSION;
+manager.proxy   = proxy;
+manager.t       = translate;
 
 setHookCallback(currentInstance);
 
-/*
- import {
- defineLocale,
- updateLocale,
- getSetGlobalLocale as locale,
- getLocale          as localeData,
- listLocales        as locales
- } from './lib/locale/locale';
- */
-
-/*
- manager.fn           = fn;
- manager.is           = is;
- manager.locale       = locale;
- manager.localeData   = localeData;
- manager.locales      = locales;
- manager.defineLocale = defineLocale;
- manager.updateLocale = updateLocale;
- */
-
-manager.coreFoo          = foo;
-
-manager.prototype = fn;
+import prepareLocale from './lib/core/by-default-locale';
+prepareLocale();
 
 export default manager;

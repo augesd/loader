@@ -1,7 +1,7 @@
 import hasOwnProp from './has-own-prop';
 
 export default function extend(a, b) {
-    for (var i in b) {
+    for (let i in b) {
         if (hasOwnProp(b, i)) {
             a[i] = b[i];
         }

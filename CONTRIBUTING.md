@@ -64,7 +64,7 @@ We use Grunt for managing the build. Here are some useful Grunt tasks:
   * `grunt build-min` Build everything and magnifying.
   * `grunt set-version:1.0.0` Set new version's number as '1.0.0'.
   * `grunt release` Build everything, including minified files (do not include those in Pull Requests)
-  * `grunt transpile:fr,ru` Build custom locale bundles `wgm-with-locales.custom.js` and `locales.custom.js` inside `build/umd` containing just French and Russian.  
+  * `grunt combine:fr,ru` Build custom locale bundles `wgm-with-locales.custom.js` and `locales.custom.js` inside `build/umd` containing just French and Russian.  
 
 Becoming a AUGE team member
 =============================

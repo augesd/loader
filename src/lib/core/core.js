@@ -1,14 +1,13 @@
-import { getInstance } from '../create/by-default';
-import { is } from './constructor';
-import proto from './prototype';
+// Side effect imports
+import './prototype';
 
-function foo (input = 'someValue') {
-    console.info(`core.foo, ${input}!`);
-}
+import { defaultInstance as currentInstance } from './by-default';
+
+import proxy from './proxy';
+import translate from './translate';
 
 export {
-    foo,
-    is,
-    getInstance,
-    proto
+	currentInstance,
+	proxy,
+	translate
 };
