@@ -6,7 +6,7 @@ module.exports = function (grunt) {
 		'\n * <%= pkg.title %> <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)' +
 		'\n * (c) <%= grunt.template.today("yyyy") %> <%= pkg.developer %>, <%= pkg.author %>' +
 		'\n * Distributed under <%= pkg.license %> license.' +
-		'\n */\n\n',
+		'\n */\n',
 		uglify: {
 			options: {
 				//banner: '<%= banner %>',
@@ -23,9 +23,9 @@ module.exports = function (grunt) {
 			},
 			main: {
 				files: {
-					//'build/umd/wgm-with-locales.min.js': 'build/umd/wgm-with-locales.js',
+					//'build/umd/<%= pkg.name %>-with-locales.min.js': 'build/umd/<%= pkg.name %>-with-locales.js',
 					//'build/umd/locales.min.js': 'build/umd/locales.js',
-					'build/umd/wgm.min.js': 'build/umd/wgm.js'
+					'build/umd/<%= pkg.name %>.min.js': 'build/umd/<%= pkg.name %>.js'
 				}
 			}
 		},
@@ -55,7 +55,10 @@ module.exports = function (grunt) {
 			},
 			main: {
 				files: {
-					src: '<%= uglify.main.files %>'
+					src: [
+						'build/umd/<%= pkg.name %>.js',
+						'build/umd/<%= pkg.name %>.min.js'
+					]
 				}
 			}
 		},

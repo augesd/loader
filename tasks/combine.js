@@ -13,21 +13,21 @@ module.exports = function (grunt) {
 		},
 		manager: {
 			options: {
-				moduleName: 'wgm'
+				moduleName: '<%= pkg.name %>'
 			},
 			files: [{
-				src: 'src/wgm.js',
-				dest: 'build/umd/wgm.js'
+				src: 'src/<%= pkg.name %>.js',
+				dest: 'build/umd/<%= pkg.name %>.js'
 			}]
 		},
 		locales: {
 			options: {
 				exports: 'none',
 				external: [
-					path.resolve(__dirname, '../src/wgm.js')
+					path.resolve(__dirname, '../src/<%= pkg.name %>.js')
 				],
 				globals: {
-					'../core': 'wgm'
+					'../core': '<%= pkg.name %>'
 				}
 			},
 			files: [{

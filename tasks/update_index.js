@@ -3,10 +3,10 @@ module.exports = function (grunt) {
 		expand: true,
 		cwd: 'build/umd/',
 		src: [
-			'wgm.js',
-			'wgm.min.js',
-			'wgm-with-locales.js',
-			'wgm-with-locales.min.js',
+			'<%= pkg.name %>.js',
+			'<%= pkg.name %>.min.js',
+			'<%= pkg.name %>-with-locales.js',
+			'<%= pkg.name %>-with-locales.min.js',
 			'locales.js',
 			'locales.min.js',
 			'locale/*.js'
