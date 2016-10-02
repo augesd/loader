@@ -4,9 +4,11 @@ import isUndefined from '../utils/is-undefined';
 
 function translate(key) {
 	let locale = hooks.proxy('locales').get(hooks.locale),
-	    res = locale ? locale.get(key) : null;
+	    res    = locale ? locale.get(key) : null;
 
-	if (!res || isUndefined(res)) res = hooks.proxy('locales').get(LOCALE).get(key);
+	if (!res || isUndefined(res)) {
+		res = hooks.proxy('locales').get(LOCALE).get(key);
+	}
 	return res || `%${key}%`;
 }
 

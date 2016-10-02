@@ -8,7 +8,9 @@ function applyConfig(to, from) {
 	console.info('constructor.applyConfig', arguments);
 	let i, prop, val;
 
-	if (!isUndefined(from._is)) to._is = from._is;
+	if (!isUndefined(from._is)) {
+		to._is = from._is;
+	}
 
 	to._params = new Proxy(from._input, handlerReadOnly);
 
@@ -16,7 +18,9 @@ function applyConfig(to, from) {
 		for (i in settings) {
 			prop = settings[i];
 			val  = from[prop];
-			if (!isUndefined(val)) to[prop] = val;
+			if (!isUndefined(val)) {
+				to[prop] = val;
+			}
 		}
 	}
 

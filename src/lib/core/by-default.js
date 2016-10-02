@@ -9,7 +9,9 @@ function prepareConfig(config) {
 	console.info('by-default.prepareConfig', config);
 	let input = config._input;
 
-	if (is(input)) return new Manager(input);
+	if (is(input)) {
+		return new Manager(input);
+	}
 
 	return config;
 }

@@ -34,6 +34,8 @@
 		}
 	},
 	"devDependencies" : {
+		"babel-eslint" : "latest",
+		"eslint" : "latest",
 		"babel-preset-es2015" : "latest",
 		"babel-preset-es2015-loose-rollup" : "latest",
 		"es6-promise" : "latest",
@@ -41,6 +43,7 @@
 		"grunt-babel" : "latest",
 		"grunt-cli" : "latest",
 		"grunt-contrib-clean" : "latest",
+		"grunt-contrib-compress" : "latest",
 		"grunt-contrib-concat" : "latest",
 		"grunt-contrib-copy" : "latest",
 		"grunt-contrib-jshint" : "latest",
@@ -50,6 +53,7 @@
 		"grunt-exec" : "latest",
 		"grunt-jscs" : "latest",
 		"grunt-rollup" : "latest",
+		"grunt-stamp" : "latest",
 		"grunt-string-replace" : "latest",
 		"load-grunt-tasks" : "latest",
 		"rollup" : "latest",

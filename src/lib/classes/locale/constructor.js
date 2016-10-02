@@ -4,7 +4,9 @@ export default class Locale extends MapObject {
 
 	constructor(data) {
 		super();
-		if (data) this.update(data);
+		if (data) {
+			this.update(data);
+		}
 	}
 
 	get(key) {

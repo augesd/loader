@@ -2,23 +2,14 @@ module.exports = function (grunt) {
 	require('time-grunt')(grunt);
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		meta: {
-			banner: '/*!' +
-			'\n * <%= pkg.title %> <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)' +
-			'\n * (c) <%= grunt.template.today("yyyy") %> <%= pkg.developer %>, <%= pkg.author %>' +
-			'\n * Distributed under <%= pkg.license %> license.' +
-			'\n */\n\n'
-		},
+		banner: '/*!' +
+		'\n * <%= pkg.title %> <%= pkg.version %> (<%= grunt.template.today("yyyy-mm-dd, HH:MM") %>)' +
+		'\n * (c) <%= grunt.template.today("yyyy") %> <%= pkg.developer %>, <%= pkg.author %>' +
+		'\n * Distributed under <%= pkg.license %> license.' +
+		'\n */\n\n',
 		uglify: {
-			main: {
-				files: {
-					'build/umd/wgm-with-locales.min.js': 'build/umd/wgm-with-locales.js',
-					'build/umd/locales.min.js': 'build/umd/locales.js',
-					'build/umd/wgm.min.js': 'build/umd/wgm.js'
-				}
-			},
 			options: {
-				banner: '<%= meta.banner %>',
+				//banner: '<%= banner %>',
 				stripBanners: true,
 				preserveComments: false,
 				mangle: true,
@@ -29,26 +20,61 @@ module.exports = function (grunt) {
 					ascii_only: true // jshint ignore:line
 				},
 				report: 'min'
+			},
+			main: {
+				files: {
+					//'build/umd/wgm-with-locales.min.js': 'build/umd/wgm-with-locales.js',
+					//'build/umd/locales.min.js': 'build/umd/locales.js',
+					'build/umd/wgm.min.js': 'build/umd/wgm.js'
+				}
 			}
 		},
 		jshint: {
-			all: [
-				'Gruntfile.js',
-				'tasks/**.js',
-				'src/**/*.js'
-			],
 			options: {
 				jshintrc: true
-			}
-		},
-		jscs: {
+			},
 			all: [
 				'Gruntfile.js',
 				'tasks/**.js',
 				'src/**/*.js'
-			],
+			]
+		},
+		jscs: {
 			options: {
 				config: '.jscs.json'
+			},
+			all: [
+				'Gruntfile.js',
+				'tasks/**.js',
+				'src/**/*.js'
+			]
+		},
+		stamp: {
+			options: {
+				banner: '<%= banner %>'
+			},
+			main: {
+				files: {
+					src: '<%= uglify.main.files %>'
+				}
+			}
+		},
+		compress: {
+			main: {
+				options: {
+					archive: '<%= pkg.name %>-<%= pkg.version %>-dist.zip',
+					mode: 'zip',
+					level: 9,
+					pretty: true
+				},
+				files: [
+					{
+						expand: true,
+						cwd: 'build/umd/',
+						src: ['**'],
+						dest: '<%= pkg.name %>-<%= pkg.version %>-dist'
+					}
+				]
 			}
 		}
 	});
@@ -71,9 +97,10 @@ module.exports = function (grunt) {
 	// Task to be run when releasing a new version
 	grunt.registerTask('release', [
 		'default',
-		'build',
+		'build-min',
+		'stamp',
 		'update-index',
-		'uglify:main'
+		'compress'
 	]);
 };
 
