@@ -1,6 +1,8 @@
-import MapObject from '../classes/map-object/constructor';
 import Locales from '../classes/locales/constructor';
+import '../classes/locales/prototype';
+
 import Locale from '../classes/locale/constructor';
+import '../classes/locale/prototype';
 
 // main data proxy
 var _dataProxy = new Map();

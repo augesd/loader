@@ -4,5 +4,6 @@
 import manager from '../wgm';
 
 export default manager.proxy('locales').add('en-gb', {
-	'errors.readOnly': 'Please don\'t set properties on this object.'
+	'errors.readOnly': 'Please don\'t set properties on this object.',
+	'wgm': 'Widget Manager'
 });

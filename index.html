@@ -21,11 +21,14 @@
     <script type="text/javascript">
         console.time('wgm');
 
+        console.info( window.wgm.t('wgm') );
+
         let locales = window.wgm.proxy('locales');
 
-        var newObj = new window.wgm({income:'SomeOne'});
+        let curLocale = locales.entries().next().value;
+        console.info('locales.'+curLocale[0]+'.entries.first',curLocale[1].entries().next().value);
 
-        //console.info( window.wgm.t('foo') );
+        var newObj = new window.wgm({income:'SomeOne'});
 
         console.timeEnd('wgm');
     </script>
