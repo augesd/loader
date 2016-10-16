@@ -2,6 +2,6 @@ import { Manager } from './constructor';
 
 var proto = Manager.prototype;
 
-import scan from './scan';
+import wrapper from './wrapper';
 
-proto.scan = scan;
+proto.wrapper = wrapper;

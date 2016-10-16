@@ -9,26 +9,46 @@
     <p>Please find details in console.</p>
 
     <a href="./foo.html">foo</a>
-    <a href="https://ya.ru">ya.ru</a>
+    <a class="yandex" href="https://ya.ru">ya.ru</a>
 
     <!--
-    <script type="application/javascript" src="./build/umd/wgm.min.js"></script>
-    <script type="application/javascript" src="./build/umd/wgm.js"></script>
-    <script type="application/javascript" src="./src/locale/ru.js"></script>
+    <script src="./build/umd/wgm.min.js"></script>
+    <script src="./build/umd/wgm.js"></script>
+    <script src="./src/locale/ru.js"></script>
     -->
-    <script type="application/javascript" src="./build/bundle.js"></script>
 
-    <script type="text/javascript">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- -->
+    <script src="./build/bundle.js"></script>
+
+    <script>
         console.time('wgm');
 
-        console.info( window.wgm.t('wgm') );
-
-        let locales = window.wgm.proxy('locales');
-
-        let curLocale = locales.entries().next().value;
+        /*
+        let locales     = window.wgm.proxy('locales'),
+            curLocale   = locales.entries().next().value;
         console.info('locales.'+curLocale[0]+'.entries.first',curLocale[1].entries().next().value);
+        */
 
-        var newObj = new window.wgm({income:'SomeOne'});
+        var newObj = new window.wgm({
+            foo:'bar'
+        });
+
+        newObj.wrapper('.yandex')
+        .scan()
+        .then(function(res) {
+            // on successful
+            console.info('successful',res);
+        /*
+        }, function(error) {
+            // on error
+            console.info('error',arguments);
+        */
+        })
+        .catch(function(reason) {
+            console.info('catch',reason);
+        });
 
         console.timeEnd('wgm');
     </script>

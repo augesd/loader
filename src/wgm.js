@@ -14,12 +14,14 @@ import {
 } from './lib/utils/hooks';
 
 import {
+	dom,
 	proxy,
 	translate,
 	currentInstance
 } from './lib/core/core';
 
 manager.version = VERSION;
+manager.$       = dom;
 manager.proxy   = proxy;
 manager.t       = translate;
 
