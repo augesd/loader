@@ -6,10 +6,9 @@ export default function append(value) {
 	if (isUndefined(value)) throw new Error(hooks.t('errors.paramsRequired'));
 	if (!this.el) return undefined;
 
-	let el = this.el[0];
-	if (!el) return undefined;
-
-	el.insertAdjacentHTML('beforeend', value);
+	for (var el of this.el) {
+		el.insertAdjacentHTML('beforeend', value);
+	}
 
 	return this;
 }
