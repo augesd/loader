@@ -3,6 +3,12 @@
 <head>
     <meta charset="utf-8"/>
     <title>auge.wgm</title>
+
+    <style>
+        .yandex {color: green;}
+        .bold {font-weight: bold;}
+        .big {font-size: 20px;}
+    </style>
 </head>
 <body>
 
@@ -10,6 +16,7 @@
 
     <a href="./foo.html">foo</a>
     <a class="yandex" href="https://ya.ru">ya.ru</a>
+    <a class="yandex" href="https://yandex.ru">yandex.ru</a>
 
     <!--
     <script src="./build/umd/wgm.min.js"></script>
@@ -17,6 +24,7 @@
     <script src="./src/locale/ru.js"></script>
     -->
 
+    <!--
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <!-- -->
@@ -35,20 +43,27 @@
             foo:'bar'
         });
 
+        newObj.wrapper('.yandex').scan().then(function(res) {
+            // on successful
+            console.info('successful');
+            res.prepend('<b>123</b>');
+        });
+
+        /*
         newObj.wrapper('.yandex')
         .scan()
         .then(function(res) {
             // on successful
             console.info('successful',res);
-        /*
+            wrYandex.trigger('someEvent',{foo:'bar'});
         }, function(error) {
             // on error
             console.info('error',arguments);
-        */
         })
         .catch(function(reason) {
             console.info('catch',reason);
         });
+        */
 
         console.timeEnd('wgm');
     </script>
