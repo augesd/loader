@@ -1,11 +1,22 @@
+import { hooks } from '../../utils/hooks';
+
 import isUndefined from '../../utils/is-undefined';
 
 export default function html(value) {
-	let el = this.el[0];
-	if (!el) return undefined;
+	if (!this.el) return undefined;
 
-	if (isUndefined(value)) return el.innerHTML;
+	if (isUndefined(value)) {
+		let res = [];
+		for (let el of this.el) {
+			res.push(el.innerHTML);
+		}
+		return res.join('');
 
-	el.innerHTML = value;
+	} else {
+		for (let el of this.el) {
+			el.innerHTML = value;
+		}
+	}
+
 	return this;
 }
