@@ -1,6 +1,6 @@
 import isFunction from '../../utils/is-function';
 
-function off(label, callback) {
+function removeListener(label, callback) {
 	let listeners = this.listeners.get(label),
 	    index;
 
@@ -20,4 +20,4 @@ function off(label, callback) {
 	return false;
 }
 
-export default off;
+export default removeListener;

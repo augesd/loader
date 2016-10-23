@@ -1,4 +1,4 @@
-function trigger(label, ...args) {
+function emit(label, ...args) {
 	let listeners = this.listeners.get(label);
 
 	if (listeners && listeners.length) {
@@ -10,4 +10,4 @@ function trigger(label, ...args) {
 	return false;
 }
 
-export default trigger;
+export default emit;

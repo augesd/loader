@@ -2,6 +2,15 @@ import SimpleDom from './constructor';
 
 let protoSimpleDom = SimpleDom.prototype;
 
+import addListener from '../event-emitter/addListener';
+import removeListener from '../event-emitter/removeListener';
+import emit from '../event-emitter/emit';
+
+protoSimpleDom.addListener    = addListener;
+protoSimpleDom.removeListener = removeListener;
+protoSimpleDom.emit           = emit;
+
+
 import find from './find';
 import siblings from './siblings';
 import prev from './prev';
@@ -28,6 +37,10 @@ import prepend from './prepend';
 import insertBefore from './insertBefore';
 import insertAfter from './insertAfter';
 import is from './is';
+import on from './on';
+import off from './off';
+import trigger from './trigger';
+import once from './once';
 
 protoSimpleDom.find         = find;
 protoSimpleDom.siblings     = siblings;
@@ -55,11 +68,7 @@ protoSimpleDom.prepend      = prepend;
 protoSimpleDom.insertBefore = insertBefore;
 protoSimpleDom.insertAfter  = insertAfter;
 protoSimpleDom.is           = is;
-
-import on from '../event-emitter/on';
-import off from '../event-emitter/off';
-import trigger from '../event-emitter/trigger';
-
-protoSimpleDom.on      = on;
-protoSimpleDom.off     = off;
-protoSimpleDom.trigger = trigger;
+protoSimpleDom.on           = on;
+protoSimpleDom.off          = off;
+protoSimpleDom.trigger      = trigger;
+protoSimpleDom.once         = once;

@@ -2,10 +2,10 @@ import EventEmitter from './constructor';
 
 let protoEventEmitter = EventEmitter.prototype;
 
-import on from './on';
-import off from './off';
-import trigger from './trigger';
+import addListener from './addListener';
+import removeListener from './removeListener';
+import emit from './emit';
 
-protoEventEmitter.on      = on;
-protoEventEmitter.off     = off;
-protoEventEmitter.trigger = trigger;
+protoEventEmitter.addListener    = addListener;
+protoEventEmitter.removeListener = removeListener;
+protoEventEmitter.emit           = emit;
