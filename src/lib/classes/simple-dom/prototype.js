@@ -41,6 +41,8 @@ import on from './on';
 import off from './off';
 import trigger from './trigger';
 import once from './once';
+import each from './each';
+import empty from './empty';
 
 protoSimpleDom.find         = find;
 protoSimpleDom.siblings     = siblings;
@@ -72,3 +74,5 @@ protoSimpleDom.on           = on;
 protoSimpleDom.off          = off;
 protoSimpleDom.trigger      = trigger;
 protoSimpleDom.once         = once;
+protoSimpleDom.each         = each;
+protoSimpleDom.empty        = empty;

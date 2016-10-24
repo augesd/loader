@@ -5,11 +5,21 @@ export default class SimpleDom extends EventEmitter {
 	constructor(selector) {
 		super();
 
+		//this.el = [];
+
 		if (typeof (selector) === 'object') {
 			this.byEl(selector);
 		} else {
 			this.bySelector(selector);
 		}
+	}
+
+	get element() {
+		return [...this.el];
+	}
+
+	get length() {
+		return this.el ? this.el.length : 0;
 	}
 
 	byEl(selector) {
