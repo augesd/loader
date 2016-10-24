@@ -1,10 +1,14 @@
 import { hooks } from '../../utils/hooks';
 
-function scan() {
+function scan(force) {
 	// Return the promise
 	return new Promise((resolve, reject) => {
 		if (!this.selector) reject(hooks.t('errors.wrongSelector'));
-		resolve( hooks.$(this.selector) );
+
+		let res = hooks.$(this.selector + (force ? '' : ':not([data-ready="1"])'));
+		res.data('ready', '1');
+
+		resolve(res);
 	});
 }
 
