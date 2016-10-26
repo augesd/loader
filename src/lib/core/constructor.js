@@ -1,3 +1,5 @@
+import EventEmitter from '../classes/event-emitter/constructor';
+
 import isUndefined from '../utils/is-undefined';
 import handlerReadOnly from '../handlers/readOnly';
 
@@ -28,8 +30,14 @@ function applyConfig(to, from) {
 }
 
 // Manager prototype object
-export function Manager(config) {
-	applyConfig(this, config);
+export class Manager extends EventEmitter {
+
+	constructor(config) {
+		super();
+
+		applyConfig(this, config);
+	}
+
 }
 
 export function is(obj) {
