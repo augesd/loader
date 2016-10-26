@@ -4,7 +4,7 @@ import '../classes/simple-dom/prototype';
 
 function dom(selector) {
 	if (typeof selector === 'undefined') throw new Error(hooks.t('errors.wrongSelector'));
-	if (typeof jQuery !== 'undefined') return jQuery.apply(jQuery, [selector]);
+	if (typeof window.jQuery !== 'undefined') return window.jQuery.apply(window.jQuery, [selector]);
 	return new SimpleDom(selector);
 }
 

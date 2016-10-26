@@ -1,5 +1,5 @@
 function addListener(label, callback) {
-	this.listeners.has(label) || this.listeners.set(label, []);
+	if (!this.listeners.has(label)) this.listeners.set(label, []);
 	this.listeners.get(label).push(callback);
 }
 
