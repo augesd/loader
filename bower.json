@@ -6,9 +6,11 @@
 		"build",
 		"min",
 		"node_modules",
+		"vendor",
 		"src",
 		"tasks",
 		"test",
+		".bowerrc",
 		".gitignore",
 		".jscs",
 		".jshintrc",
@@ -18,5 +20,8 @@
 		"Gruntfile.js",
 		"index.html",
 		"package.json"
-	]
+	],
+	"dependencies" : {
+		"postmate" : "latest"
+	}
 }
