@@ -11,7 +11,6 @@ export default function text(value) {
 			res.push(el.textContent);
 		}
 		return res.join('');
-
 	} else {
 		for (let el of this.el) {
 			el.textContent = value;

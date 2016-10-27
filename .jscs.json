@@ -1,6 +1,6 @@
 {
 	"requireCurlyBraces" : [
-		"if",
+		//"if",
 		"else",
 		"for",
 		"while",

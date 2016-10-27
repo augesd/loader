@@ -11,7 +11,6 @@ export default function html(value) {
 			res.push(el.innerHTML);
 		}
 		return res.join('');
-
 	} else {
 		for (let el of this.el) {
 			el.innerHTML = value;
