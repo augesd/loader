@@ -8,7 +8,7 @@ module.exports = function (grunt) {
 			plugins: [babelPlugin({
 				babelrc: false,
 				compact: false,
-				presets: ['es2015-loose-rollup']
+				presets: ['es2015-loose-rollup','stage-1']
 			})]
 		},
 		manager: {

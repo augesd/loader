@@ -30,4 +30,8 @@ setHookCallback(currentInstance);
 import prepareLocale from './lib/core/by-default-locale';
 prepareLocale();
 
+import Postmate from '../vendor/postmate/src/postmate';
+//import '../vendor/perfnow/perfnow.min';
+
+
 export default manager;
