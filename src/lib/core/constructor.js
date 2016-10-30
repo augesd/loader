@@ -1,5 +1,3 @@
-import EventEmitter from '../classes/event-emitter/constructor';
-
 import isUndefined from '../utils/is-undefined';
 import handlerReadOnly from '../handlers/readOnly';
 
@@ -9,13 +7,13 @@ var settings = [];
 function applyConfig(to, from) {
 	console.info('constructor.applyConfig', arguments);
 	let i, prop, val;
-
+	
 	if (!isUndefined(from._is)) {
 		to._is = from._is;
 	}
-
+	
 	to._params = new Proxy(from._input, handlerReadOnly);
-
+	
 	if (settings.length > 0) {
 		for (i in settings) {
 			prop = settings[i];
@@ -25,19 +23,15 @@ function applyConfig(to, from) {
 			}
 		}
 	}
-
+	
 	return to;
 }
 
 // Manager prototype object
-export class Manager extends EventEmitter {
-
+export class Manager {
 	constructor(config) {
-		super();
-
 		applyConfig(this, config);
 	}
-
 }
 
 export function is(obj) {
