@@ -1,163 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8"/>
-    <title>auge.wgm</title>
+	<meta charset="utf-8"/>
+	<title>auge.wgm</title>
 
-    <style>
-        .wdgt {
-	        -webkit-user-select: none;
-	        -moz-user-select: none;
-	        -ms-user-select: none;
-	        user-select: none;
-        }
-        .lnk {cursor:pointer; color: green;}
-	    .bld {font-weight: bold;}
-    </style>
+	<style>
+		.wdgt {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.lnk {
+			cursor: pointer;
+			color: green;
+		}
+
+		.bld {
+			font-weight: bold;
+		}
+	</style>
 </head>
 <body>
 
-    <p>Please find details in console.</p>
+<p>Please find details in console.</p>
 
-    <div class="lnk wdgt" data-view="btn">#1</div>
-    <div class="lnk wdgt" data-view="btn">#2</div>
-    <span class="lnk wdgt" data-view="info">#3</span>
+<div class="lnk wdgt" data-view="btn">#1</div>
+<div class="lnk wdgt" data-view="btn">#2</div>
+<span class="lnk wdgt" data-view="info">#3</span>
 
-    <!--
-    <script src="./build/umd/wgm.min.js"></script>
-    <script src="./build/umd/wgm.js"></script>
-    <script src="./src/locale/ru.js"></script>
-    -->
+<!--
+<script src="./build/umd/wgm.min.js"></script>
+<script src="./build/umd/wgm.js"></script>
+<script src="./src/locale/ru.js"></script>
+-->
 
-    <!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-
-    <!-- -->
-    <script type="text/javascript" src="./build/bundle.js"></script>
-
-    <script type="text/javascript">
-        console.time('wgm');
-
-        /*
-        let locales     = window.wgm.proxy('locales'),
-            curLocale   = locales.entries().next().value;
-        console.info('locales.'+curLocale[0]+'.entries.first',curLocale[1].entries().next().value);
-        */
-
-        var AppName = new window.wgm({
-            foo:'bar'
-        });
-
-        var channels = window.wgm.proxy('channels');
-
-        var wrap = function(items) {
-	        console.time('wrap-'+this.id);
-
-            console.info('successful', [items.length, items.element]);
-	        if (!items.length) return false;
-
-	        let self    = this,
-	            channel = channels.get(self.channel);
-
-            let handler = function() {
-	            channel.emit('wdgt:click');
-	            channels.get('common').emit('wdgt:click');
-            };
-	        let obServer = function () {
-	            let cnt = parseInt(this.data('cnt')) || 0;
-	            this.data('cnt', cnt+1);
-	            this.text(this.text()+'-'+this.data('cnt'));
-            };
-	        let obServerCommon = function () {
-		        this.toggleClass('bld');
-	        };
-
-            items.each(function(el,idx){
-                el
-                    .empty()
-                    .append('<span>ID: '+self.id+' '+(idx+1)+'</span>')
-                    .on('click', handler.bind(el))
-                ;
-	            channel.addListener('wdgt:click', obServer.bind(el));
-	            channels.get('common').addListener('wdgt:click', obServerCommon.bind(el));
-            });
-
-	        console.timeEnd('wrap-'+this.id);
-        };
-
-        var wrappers = {
-            btn  : {
-                selector   : '.wdgt[data-view="btn"]',
-                decorator  : wrap,
-                channel    : 'channel-btn'
-            }
-            ,info : {
-                selector   : '.wdgt[data-view="info"]',
-                decorator  : wrap,
-		        channel    : 'channel-info'
-            }
-        };
-
-        for (var key in wrappers) {
-            var wrapper = wrappers[key];
-	        if (wrapper && (wrapper.selector && wrapper.decorator)) {
-		        wrapper.id = key;
-	            AppName.wrapper(wrapper.selector).scan().then( wrapper.decorator.bind(wrapper) );
-            }
-        }
-
-        /*
-        //console.info(window.performance.now());
-        if (window.performance && window.performance.getEntries) {
-            var excludeUrl = 'ya.ru',
-                ready   = {},
-                timings = [],
-                entries = window.performance.getEntries();
-            for (var i = 0; i < entries.length; ++i) {
-                var entry = entries[i],
-                    url = entry.name ? entry.name.toLowerCase() : null,
-                    duration = Math.round(entry.duration),
-                    valid = url
-                            && (
-                                    url.indexOf('.af.ua/') > -1
-                                    || url.indexOf('localhost') > -1
-                            )
-                            && url.indexOf(excludeUrl) < 0
-                            && duration > 0
-                            && !(url in ready)
-                        ;
-
-                valid && timings.push({
-                    url: url,
-                    ms: duration
-                })
-            }
-
-            console.info('timings',timings);
-            // .. save to ready
-
-        }
+<!--
+<script>(function (w, d, id, host, ver, locale) {
+	if (d.getElementById(id))return;
+	var t   = 'script',
+	    n   = d.getElementsByTagName(t)[0],
+	    s   = d.createElement(t),
+	    f   = function () { n.parentNode.insertBefore(s, n); },
+	    o   = id + '-opts';
+	w[o]    = w[o] || {app: {ver: ver || 'latest', locale: locale || 'auto'}};
+	s.id    = id;
+	s.type  = 'text/javascript';
+	s.async = 1;
+	s.src   = (d.location.protocol == 'https:' ? 'https:' : 'http:') + host + 'loader.js' + '?opts=' + encodeURIComponent(o);
+	if (w.opera == '[object Opera]') {
+		d.addEventListener('DOMContentLoaded', f, false);
+	} else {
+		f();
+	}
+}(window, document, 'widget-loader', '//localhost:63342/auge.wgm/'));</script>
 
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+-->
 
-
-        AppName.wrapper('.wdgt')
-        .scan()
-        .then(function(res) {
-            // on successful
-            console.info('successful',res);
-            wrwdgt.trigger('someEvent',{foo:'bar'});
-        }, function(error) {
-            // on error
-            console.info('error',arguments);
-        })
-        .catch(function(reason) {
-            console.info('catch',reason);
-        });
-        */
-
-        console.timeEnd('wgm');
-    </script>
+<script>!function(a,b,c,d,e,f){if(!b.getElementById(c)){var g="script",h=b.getElementsByTagName(g)[0],i=b.createElement(g),j=function(){h.parentNode.insertBefore(i,h)},k=c+"-opts";a[k]=a[k]||{app:{ver:e||"latest",locale:f||"auto"}},i.id=c,i.type="text/javascript",i.async=1,i.src=("https:"==b.location.protocol?"https:":"http:")+d+"loader.js?opts="+encodeURIComponent(k),"[object Opera]"==a.opera?b.addEventListener("DOMContentLoaded",j,!1):j()}}(window,document,"widget-loader","//localhost:63342/auge.wgm/");</script>
 
 </body>
 </html>
