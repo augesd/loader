@@ -12,7 +12,12 @@ function applyConfig(to, from) {
 		to._is = from._is;
 	}
 	
-	to._params = new Proxy(from._input, handlerReadOnly);
+	try {
+		to._params = new Proxy(from._input, handlerReadOnly);
+	} catch (e) {
+		// Fucking IE!!!
+		to._params = from._input;
+	}
 	
 	if (settings.length > 0) {
 		for (i in settings) {

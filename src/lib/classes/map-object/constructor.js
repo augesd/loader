@@ -7,7 +7,7 @@ export default class MapObject {
 	}
 
 	get size() {
-		return this._size();
+		return _size();
 	}
 
 }
