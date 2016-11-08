@@ -8,8 +8,7 @@ export default function each(handler) {
 
 	let idx = 0;
 	for (let el of this.el) {
-		let $el = hooks.$(el);
-		handler.call(this, $el, idx, el);
+		handler.call(this, idx, el);
 		idx++;
 	}
 
