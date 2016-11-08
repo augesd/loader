@@ -177,11 +177,8 @@ var MainLoaderInitialize = function (id, params) {
 	if (optionsName) drill(params, window[optionsName]);
 	
 	if (navigator.userAgent.search(/(MSIE\s|Trident\/|Edge\/)/) != -1) {
-		//params.push('./vendor/promise-polyfill/promise.min.js');
-		//params.dependencies.push('./vendor/es6-promise/es6-promise.min.js');
 		params.dependencies.push('./vendor/babel-polyfill/browser-polyfill.js');
 	}
-	
 	//params.dependencies.push('./vendor/auge/wgm.min.js');   // Url to AUGE WGM
 	params.dependencies.push('./build/bundle.js');
 	

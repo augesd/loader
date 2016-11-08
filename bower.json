@@ -24,7 +24,6 @@
 	],
 	"dependencies" : {
 		"postmate" : "latest",
-		"es6-promise" : "latest",
 		"babel-polyfill" : "latest",
 		"perfnow" : "latest"
 	}
