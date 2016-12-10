@@ -4,7 +4,6 @@
 	"ignore" : [
 		"**/.*",
 		"build",
-		"example",
 		"min",
 		"node_modules",
 		"vendor",
@@ -19,7 +18,6 @@
 		"bower.json",
 		"CONTRIBUTING.md",
 		"Gruntfile.js",
-		"index.html",
 		"package.json",
 		"rollup.config.js"
 	],
