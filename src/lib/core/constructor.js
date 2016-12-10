@@ -4,27 +4,27 @@ import handlerReadOnly from '../handlers/readOnly';
 var settings = [];
 //settings.push('locale');
 
-function applyConfig(to, from) {
-	console.info('constructor.applyConfig', arguments);
+function applyConfig ( to, from ) {
+	console.info ( 'constructor.applyConfig', arguments );
 	let i, prop, val;
 	
-	if (!isUndefined(from._is)) {
+	if ( !isUndefined ( from._is ) ) {
 		to._is = from._is;
 	}
 	
 	try {
-		to._params = new Proxy(from._input, handlerReadOnly);
-	} catch (e) {
+		to._params = new Proxy ( from._input, handlerReadOnly );
+	} catch ( e ) {
 		// Fucking IE!!!
 		to._params = from._input;
 	}
 	
-	if (settings.length > 0) {
-		for (i in settings) {
-			prop = settings[i];
-			val  = from[prop];
-			if (!isUndefined(val)) {
-				to[prop] = val;
+	if ( settings.length > 0 ) {
+		for ( i in settings ) {
+			prop = settings[ i ];
+			val  = from[ prop ];
+			if ( !isUndefined ( val ) ) {
+				to[ prop ] = val;
 			}
 		}
 	}
@@ -34,11 +34,11 @@ function applyConfig(to, from) {
 
 // Manager prototype object
 export class Manager {
-	constructor(config) {
-		applyConfig(this, config);
+	constructor ( config ) {
+		applyConfig ( this, config );
 	}
 }
 
-export function is(obj) {
+export function is ( obj ) {
 	return obj instanceof Manager || (obj != null && obj._is != null);
 }

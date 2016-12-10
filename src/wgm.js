@@ -25,10 +25,10 @@ manager.$       = dom;
 manager.proxy   = proxy;
 manager.t       = translate;
 
-setHookCallback(currentInstance);
+setHookCallback ( currentInstance );
 
 import prepareLocale from './lib/core/by-default-locale';
-prepareLocale();
+prepareLocale ();
 
 //import '../vendor/perfnow/perfnow.min';
 

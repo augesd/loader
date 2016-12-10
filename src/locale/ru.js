@@ -3,9 +3,9 @@
 
 import manager from '../wgm';
 
-export default manager.proxy('locales').add('ru', {
-	'errors.readOnly': 'Не устанавливайте значения свойств для данного объекта',
-	'errors.wrongSelector': 'Ошибка в описателе селектора',
+export default manager.proxy ( 'locales' ).add ( 'ru', {
+	'errors.readOnly'      : 'Не устанавливайте значения свойств для данного объекта',
+	'errors.wrongSelector' : 'Ошибка в описателе селектора',
 	'errors.paramsRequired': 'Необходимы параметры',
-	'wgm': 'Менеджер виджетов'
-});
+	'wgm'                  : 'Менеджер виджетов'
+} );

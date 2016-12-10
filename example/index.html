@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>auge.wgm</title>
+
+	<style>
+		.wdgt {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.lnk {
+			cursor: pointer;
+			color: green;
+		}
+
+		.bld {
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+
+<p>Please find details in console.</p>
+
+<div class="lnk wdgt"
+     data-aw-view="btn"
+     data-aw-foo="bar"
+>#1</div>
+
+<div class="lnk wdgt"
+     data-aw-view="btn"
+>#2</div>
+
+<span class="lnk wdgt"
+      data-aw-view="info"
+>#3</span>
+
+<!--
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+-->
+
+<script>(function ( w, d, id, host, loaderPath, prefix, locale ) {
+	if ( d.getElementById ( id ) )return;
+	var tagName   = 'script',
+	    node      = d.getElementsByTagName ( tagName )[ 0 ],
+	    script    = d.createElement ( tagName ),
+	    optionsId = id + '-opts',
+	    init      = function () {
+		    node.parentNode.insertBefore ( script, node );
+	    };
+
+	w[ optionsId ] = w[ optionsId ] || {
+				app    : {
+					locale: locale || 'auto'
+				},
+				wrapper: {
+					prefix: prefix || ''
+				}
+			};
+	script.type    = 'text/javascript';
+	script.id      = id;
+	script.async   = 1;
+	script.src     = (d.location.protocol == 'https:' ? 'https:' : 'http:') + host + loaderPath + 'loader.js' + '?opts=' + encodeURIComponent ( optionsId );
+
+	if ( w.opera == '[object Opera]' ) {
+		d.addEventListener ( 'DOMContentLoaded', init, false );
+	} else {
+		init ();
+	}
+} ( window, document, 'widget-loader', '//localhost:63342/auge.wgm/', 'example/', 'aw' ));</script>
+
+<!--
+* use https://jscompress.com/
+<script>!function(a,b,c,d,e,f){if(!b.getElementById(c)){var g="script",h=b.getElementsByTagName(g)[0],i=b.createElement(g),j=function(){h.parentNode.insertBefore(i,h)},k=c+"-opts";a[k]=a[k]||{app:{ver:e||"latest",locale:f||"auto"}},i.id=c,i.type="text/javascript",i.async=1,i.src=("https:"==b.location.protocol?"https:":"http:")+d+"loader.js?opts="+encodeURIComponent(k),"[object Opera]"==a.opera?b.addEventListener("DOMContentLoaded",j,!1):j()}}(window,document,"widget-loader","//site.com");</script>
+-->
+
+
+</body>
+</html>

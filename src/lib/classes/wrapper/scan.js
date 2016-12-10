@@ -1,16 +1,16 @@
-import {hooks} from '../../utils/hooks';
+import { hooks } from '../../utils/hooks';
 
-function scan(force) {
+function scan ( force ) {
 	// Return the promise
 	
-	return new Promise((resolve, reject) => {
-		if (!this.selector) reject(hooks.t('errors.wrongSelector'));
+	return new Promise ( ( resolve, reject ) => {
+		if ( !this.selector ) reject ( hooks.t ( 'errors.wrongSelector' ) );
 		
-		let res = hooks.$(this.selector + (force ? '' : ':not([data-ready="1"])'));
-		res.data('ready', '1');
+		let res = hooks.$ ( this.selector + (force ? '' : ':not([data-ready="1"])') );
+		res.data ( 'ready', '1' );
 		
-		resolve(res);
-	});
+		resolve ( res );
+	} );
 }
 
 export default scan;

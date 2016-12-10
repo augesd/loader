@@ -4,6 +4,7 @@
 	"ignore" : [
 		"**/.*",
 		"build",
+		"example",
 		"min",
 		"node_modules",
 		"vendor",
@@ -23,8 +24,8 @@
 		"rollup.config.js"
 	],
 	"dependencies" : {
-		"postmate" : "latest",
 		"babel-polyfill" : "latest",
+		"postmate" : "latest",
 		"perfnow" : "latest"
 	}
 }
